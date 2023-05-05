@@ -13,10 +13,11 @@ public class PalavraService {
 
     @Autowired
     private PalavraRepository repository;
-    
+
     public List<Palavra> obterTodas() {
         return repository.findAll();
     }
+    
 }
 
 // Valdelaine, Douglas, Witer, Luiza
