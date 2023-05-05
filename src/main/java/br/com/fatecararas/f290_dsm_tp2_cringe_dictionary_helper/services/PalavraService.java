@@ -14,6 +14,10 @@ public class PalavraService {
     @Autowired
     private PalavraRepository repository;
 
+    public void adicionar(Palavra palavra) {
+        repository.save(palavra);
+    }
+
     public List<Palavra> obterTodas() {
         return repository.findAll();
     }
