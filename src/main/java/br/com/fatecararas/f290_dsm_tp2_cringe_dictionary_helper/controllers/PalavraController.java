@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,14 +19,11 @@ public class PalavraController {
     private PalavraService service;
     
     @GetMapping
-    public String home() {
-        System.out.println("Passou pelo PalavraController!");
+    public String home(Model model) {
         List<Palavra> palavras = service.obterTodas();
-        palavras.forEach(p -> {
-            System.out.println("Palavra: "+p.getPalavra());
-            System.out.println("Significado: "+p.getSignificado());
-            System.out.println("\n---------------------\n");
-        });
+        System.out.println(palavras.size());
+        model.addAttribute("titulo", "Vergonha Alheia");
+        model.addAttribute("palavras", palavras);
         return "dicionario";
     }
 }

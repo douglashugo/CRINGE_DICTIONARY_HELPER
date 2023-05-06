@@ -23,6 +23,7 @@ public class Palavra {
     }
 
     public Palavra(String palavra, String significado) {
+        this.id = null;
         this.palavra = palavra;
         this.significado = significado;
     }

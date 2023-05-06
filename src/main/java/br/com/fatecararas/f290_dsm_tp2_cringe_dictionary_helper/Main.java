@@ -24,12 +24,12 @@ public class Main implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		List<Palavra> palavras = service.obterTodas();
-		System.out.println(palavras);
-		Palavra p = new Palavra("Teste", "Teste Cringe");
-		service.adicionar(p);
-		palavras = service.obterTodas();
-		System.out.println(palavras);
+		// List<Palavra> palavras = service.obterTodas();
+		// System.out.println(palavras);
+		// Palavra p = new Palavra("Teste", "Teste Cringe");
+		// service.adicionar(p);
+		// palavras = service.obterTodas();
+		// System.out.println(palavras);
 
 	}
 
