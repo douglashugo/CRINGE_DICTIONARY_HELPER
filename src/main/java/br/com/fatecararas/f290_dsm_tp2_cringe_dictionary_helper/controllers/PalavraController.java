@@ -17,11 +17,10 @@ public class PalavraController {
 
     @Autowired
     private PalavraService service;
-    
+
     @GetMapping
     public String home(Model model) {
         List<Palavra> palavras = service.obterTodas();
-        System.out.println(palavras.size());
         model.addAttribute("titulo", "Vergonha Alheia");
         model.addAttribute("palavras", palavras);
         return "dicionario";

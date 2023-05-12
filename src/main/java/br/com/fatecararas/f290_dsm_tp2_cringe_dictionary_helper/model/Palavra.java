@@ -14,7 +14,7 @@ public class Palavra {
     private Integer id;
 
     @Column(nullable = false, length = 100, unique = true)
-    private String palavra;
+    private String descricao;
 
     @Column(nullable = false)
     private String significado;
@@ -22,9 +22,9 @@ public class Palavra {
     public Palavra() {
     }
 
-    public Palavra(String palavra, String significado) {
+    public Palavra(String descricao, String significado) {
         this.id = null;
-        this.palavra = palavra;
+        this.descricao = descricao;
         this.significado = significado;
     }
 
@@ -37,12 +37,12 @@ public class Palavra {
         return this;
     }
 
-    public String getPalavra() {
-        return palavra;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setPalavra(String palavra) {
-        this.palavra = palavra;
+    public void setDescricao(String palavra) {
+        this.descricao = palavra;
     }
 
     public String getSignificado() {
@@ -55,6 +55,6 @@ public class Palavra {
 
     @Override
     public String toString() {
-        return "Palavra [id=" + id + ", palavra=" + palavra + ", significado=" + significado + "]";
+        return "Palavra [id=" + id + ", descricao=" + descricao + ", significado=" + significado + "]";
     }
 }
