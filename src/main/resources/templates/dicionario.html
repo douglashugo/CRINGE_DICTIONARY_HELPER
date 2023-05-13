@@ -12,18 +12,32 @@
 
 <body>
     <header>
-        <div class="container-fluid">
-            <h1 class="jumbotron" th:text="${titulo}">Dicionário Cringe</h1>
-        </div>
+        <h1 class="jumbotron" th:text="${titulo}">Dicionário Cringe</h1>
     </header>
     <main class="container-fluid">
         <hr>
+        <form th:action="@{/dicionario/salvar}" method="post" th:object="${palavra}">
+            <div class="row">
+                <div class="col col-3">
+                    <input type="text" class="form-control" placeholder="Palavra"
+                        th:field="*{descricao}" required>
+                </div>
+                <div class=" col col-8">
+                    <input type="text" class="form-control" placeholder="Significado"
+                        th:field="*{significado}" required>
+                </div>
+                <div class="col-auto mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </form>
         <table th:if="${palavras.size() > 0}" class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <td scope="col">Palavra</td>
                     <td scope="col">Significado</td>
+                    <td scope="col">Ação</td>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +45,10 @@
                     <th scope="row" th:text="${p.id}">1</th>
                     <td th:text="${p.descricao}">Palavra</td>
                     <td th:text="${p.significado}">Significado</td>
+                    <td colspan="2">
+                        <a th:href="@{/dicionario/excluir/{id} (id = ${p.id})}"
+                        class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
                 </tr>
             </tbody>
             </div>

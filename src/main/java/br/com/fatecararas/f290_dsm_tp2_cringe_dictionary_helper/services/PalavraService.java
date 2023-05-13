@@ -21,6 +21,10 @@ public class PalavraService {
     public List<Palavra> obterTodas() {
         return repository.findAll();
     }
+
+    public void excluir(Integer id) {
+        repository.deleteById(id);
+    }
     
 }
 
