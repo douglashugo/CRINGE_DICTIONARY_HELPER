@@ -16,7 +16,8 @@
     </header>
     <main class="container-fluid">
         <hr>
-        <form th:action="@{/dicionario/salvar}" method="post" th:object="${palavra}">
+        <!-- Ajuste para chamada de funcionalidade de atualização ou persistencia com base no status do id -->
+        <form th:action="@{dicionario.id ==null} ? @{/dicionario/salvar} : @{/dicionario/atualizar}" method="post" th:object="${palavra}">
             <div class="row">
                 <div class="col col-3">
                     <input type="text" class="form-control" placeholder="Palavra"
@@ -26,6 +27,8 @@
                     <input type="text" class="form-control" placeholder="Significado"
                         th:field="*{significado}" required>
                 </div>
+                <!-- Campo para manter o id para atualização -->
+                <input type="hidden" id="id" th:field="*{id}">   
                 <div class="col-auto mb-3">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
@@ -49,6 +52,7 @@
                         <a th:href="@{/dicionario/excluir/{id} (id = ${p.id})}"
                         class="btn btn-danger btn-sm">Excluir</a>
                     </td>
+                    <!-- Inclusão de botão para edição de palavra e redirecionamento para o formulário  -->
                 </tr>
             </tbody>
             </div>
