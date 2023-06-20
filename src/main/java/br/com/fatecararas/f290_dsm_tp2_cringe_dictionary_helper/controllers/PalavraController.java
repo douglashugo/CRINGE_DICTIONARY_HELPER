@@ -2,6 +2,8 @@ package br.com.fatecararas.f290_dsm_tp2_cringe_dictionary_helper.controllers;
 
 import java.util.List;
 
+import javax.security.sasl.SaslServerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,7 @@ public class PalavraController {
     @GetMapping
     public String home(Model model) {
         List<Palavra> palavras = service.obterTodas();
-        model.addAttribute("titulo", "Vergonha Alheia");
+        model.addAttribute("titulo", "Dicionário");
         model.addAttribute("palavras", palavras);
         model.addAttribute("palavra", new Palavra());
         return "dicionario";
@@ -41,8 +43,4 @@ public class PalavraController {
         service.excluir(id);
         return "redirect:/dicionario";
     }
-
-    //TODO: Me'todo de atualização
-
-    //TODO: Método de edição com formulário
 }

@@ -13,7 +13,7 @@ public class Main implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		//TODO: Testes de inicialização de projeto.
+		System.out.println("O projeto foi iniciado com sucesso!");
 	}
 
 }
